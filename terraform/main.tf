@@ -9,8 +9,8 @@ provider "google" {
   region = "us-central1"
 }
 
-resource "google_compute_instance_template" "staging-server" {
-  name = "staging-server"
+resource "google_compute_instance_template" "staging-server2" {
+  name = "staging-server2"
   
   project = "comp698-ds1067"
   
@@ -48,8 +48,8 @@ EOF
   }
 }
 
-resource "google_compute_instance_template" "prod-server" {
-  name = "prod-server"
+resource "google_compute_instance_template" "prod-server2" {
+  name = "prod-server2"
   
   project = "comp698-ds1067"
   
@@ -88,21 +88,21 @@ EOF
 }
 
 
-resource "google_compute_instance_group_manager" "staging-manager" {
-  name = "staging-manager"
+resource "google_compute_instance_group_manager" "staging-manager2" {
+  name = "staging-manager2"
   project = "comp698-ds1067"
   zone = "us-central1-f"
-  base_instance_name = "staging-helloworld-manager"
-  instance_template  = "${google_compute_instance_template.staging-server.self_link}"
+  base_instance_name = "staging-helloworld-manager2"
+  instance_template  = "${google_compute_instance_template.staging-server2.self_link}"
   target_size = 1
 }
 
-resource "google_compute_instance_group_manager" "prod-manager" {
-  name = "prod-manager"
+resource "google_compute_instance_group_manager" "prod-manager2" {
+  name = "prod-manager2"
   project = "comp698-ds1067"
   zone = "us-central1-f"
-  base_instance_name = "prod-bootstrap-manager"
-  instance_template  = "${google_compute_instance_template.prod-server.self_link}"
+  base_instance_name = "prod-bootstrap-manager2"
+  instance_template  = "${google_compute_instance_template.prod-server2.self_link}"
   target_size = 1
 }
 

@@ -53,7 +53,7 @@ resource "google_compute_instance_group_manager" "staging-manager" {
   name = "staging-manager"
   project = "comp698-ds1067"
   zone = "us-central1-f"
-  base_instance_name = "staging"
+  base_instance_name = "staging-helloworld-manager"
   instance_template  = "${google_compute_instance_template.staging-server.self_link}"
   target_size = 1
 }

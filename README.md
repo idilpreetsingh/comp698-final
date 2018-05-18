@@ -98,15 +98,14 @@ https://github.com/idilpreetsingh/comp698-final/pull/5/commits/d8d7d74632425eb2f
 
 Terminal output:
 dilpreetsingh@terraform-configuration:~/comp698-final/terraform$ gcloud compute instances list
-NAME                             ZONE           MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
-student-sandbox                  us-central1-a  f1-micro                    10.128.0.2   35.193.90.229  RUNNING
-terraform-configuration          us-central1-a  f1-micro                    10.128.0.3   35.202.99.191  RUNNING
-staging-helloworld-manager-zd8l  us-central1-f  n1-standard-1               10.128.0.4   35.225.36.39   RUNNING
-my-app-dev                       us-east1-b     f1-micro                    10.142.0.3   35.231.163.2   RUNNING
-my-app-prod                      us-east1-b     f1-micro                    10.142.0.2   35.227.50.90   RUNNING
 
-
-
+| NAME                             	| ZONE          	| MACHINE_TYPE  	| INTERNAL_IP 	| EXTERNAL_IP   	| STATUS  	|
+|----------------------------------	|-----------------|---------------	|-------------	|---------------	|---------	|
+| student-sandbox                   | us-central1-a   | f1-micro        | 10.128.0.2    | 35.193.90.229   | RUNNING   |
+| terraform-configuration           | us-central1-a   | f1-micro        | 10.128.0.3    | 35.202.99.191   | RUNNING   |
+| staging-helloworld-manager-zd8l   | us-central1-f 	| n1-standard-1 	| 10.128.0.4  	| 35.225.36.39  	| RUNNING 	|
+| my-app-dev                        | us-east1-b      | f1-micro        | 10.142.0.3    | 35.231.163.2    | RUNNING   |
+| my-app-prod                       | us-east1-b      | f1-micro        | 10.142.0.2    | 35.227.50.90    | RUNNING.  |
 
 8. In order two have two instances running at same time, next step was to add bootstrap-source to the repo at github and terraform-configuration server. To add the source, i added static subfolder with provided files, also updated Docker file to copy static subfolder code for bootstrap, and at last also updated functional-test.sh, main.go and main-test.go that contains output of webpages and accessibility to web pages program. 
 To push changes to github, i followed same procedure as previously, created branch ‘bootstrap-source’, checkout to ‘bootstrap-source’, did it git status to confirm changes, added updated and new files to branch, commit, push the branch, pull request through github, waited for travis-ci to pass build and merged to master. 
@@ -123,7 +122,7 @@ https://github.com/idilpreetsingh/comp698-final/commit/d0f8fdd7a98aa152d706f01f6
 9. Final step was to deploy full bootstrap app to staging server and hello world response to production server. To do so, i updated the code of main.tf and creating prod instances and prod manager with desired output based on new image and old image i got from GCP. 
 To push changes to github, i followed same procedure as previously, created branch ‘prod-stag’, checkout to ‘prod-stag’, did it git status to confirm changes, add ‘main.tf’ subdirectory to branch, commit, push the branch, pull request through github, waited for travis-ci to pass build and merged to master. 
 To push changes to terraform server, i logged into ‘terraform-configuration’ instance on terminal using ‘gcloud compute ssh terraform-configuration’ and cd into the repo and run command ‘git pull’ to update all the change to main.tf. 
-To apply changes, run the command ‘terraform apply’ in terraform subfolder. But got error because i repeated same missing what i did in step 7. So i had to change all the instances names. I did so and re did the entire thing which was made changes locally, pushed to github, pulled changed at terraform server. 
+To apply changes, run the command ‘terraform apply’ in terraform subfolder. But got error because i repeated same mistake what i did in step 7. So i had to change all the instances names. I did so and re did the entire thing which was made changes locally, pushed to github, pulled changed at terraform server. 
 To apply the changed and run server, i ran command ‘terraform apply’ . This time apply was successfully completed. 
 To check and get external IP i ran command ‘gcloud compute instances list’ and verified that it is running on server as well as on Web. Final result of production was showing Hello World output and staging server was showing bootstrap app.
 
@@ -150,4 +149,3 @@ Staging-helloworld-manager2-d469: http://104.197.59.29/home
 
 
 (Note: i forget to mention above, i used ‘git log’ frequency throughout the final to see if files updating was successful while push to repositories)
-(and i tried few different ways to create coloums for terminal output but it didntt work)

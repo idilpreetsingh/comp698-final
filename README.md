@@ -16,11 +16,15 @@ Terraform is a tool for building, changing, and versioning infrastructure safely
 Virtualized servers gives developers ability to set up and configure a server a system and also it is best for testing and reusing it as developers can have multiple versions running with ability to destroy it anytime.
 
 * Include a diagram of the architecture from laptop to GCP
+
 For this project:
-  
+
+
+![activity diagram1](https://user-images.githubusercontent.com/24468932/40233100-a3fd64fa-5a6f-11e8-9275-5ae5a263b864.jpg)
 
 In general:
-  
+
+![pict--gcp-architectural-diagram-general-content-management](https://user-images.githubusercontent.com/24468932/40233107-adbb056a-5a6f-11e8-98b1-a0e40a432c27.png)
 
 * Why use bash commands vs clicking through UI?
 One reason using bash command over UI would be it gives a better understanding to user about where, when, how and what is happening. It also builds a skill for users as it help them become more proficient with bash command. Also, more features and be utilized through bash command than UI such as sudo functionally. 
@@ -45,7 +49,7 @@ For this final project, I have used MIT Licenses in hope to secure my work even-
 * Next step is to clone the repository to your local system. For this you may either download a zip directly from github.com/ [repo] or you can git clone using the terminal.
 For this I git clone the repository to my desktop because Desktop is efficient to access since we have to go back and for at very frequent times while doing projects related to git hub. To clone, I ran this command on terminal after I ‘cd’ into location where I want my clone repository:
 
-git clone https://github.com/idilpreetsingh/comp698-final.git
+  git clone https://github.com/idilpreetsingh/comp698-final.git
 
 * Protecting the master branch I also very important in order to prevent accidental edits to file on master branch.I configured the GitHub repository to protect the master branch by going settings > branches of the comp698-final repo. Then I selected branch I want to protect which in this case was master branch. Once selected master branch we can protect it by checking ‘protect this branch’ and inside it also check ‘require status check to pass before merging. I used continuous-integration/travis-ci. So I check that as well. And also checked ‘include administrators’ to even admins don't make errors. At last, hit ‘save’ to save the changes. Github asks to enter GitHub password to verify it is admin who is making these changes.
 

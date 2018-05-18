@@ -82,7 +82,7 @@ Link to Merge PR:
 https://github.com/idilpreetsingh/comp698-final/pull/3
 
 
-6. Building trigger is one of the one of the main step to while starting to build a server. I used Google Cloud Platform Console to set up build trigger. To create new build trigger, i first selected the right project in which i want to build new trigger which in this case was ‘ds-1067’. Then in the left nav, i clicked ‘Build triggers’. To create a new trigger, click ‘Add trigger’. I used Github to link host repository for build source by selecting ‘Github’ from the possible option and then selected comp698-final repository because that is where i had my code and hit ‘Continue’. To Set up trigger profile and setting, i named the trigger ‘helloword-master’ and select ‘Branch’ as type with master. For build configuration i used Dockerfile which was perviously added to the code. For image name i used ‘gcr.io/comp698-ds1067/$REPO_NAME:$COMMIT_SHA’. 
+6. Building trigger is one of the main step to while starting to build a server. I used Google Cloud Platform Console to set up build trigger. To create new build trigger, i first selected the right project in which i want to build new trigger which in this case was ‘ds-1067’. Then in the left nav, i clicked ‘Build triggers’. To create a new trigger, click ‘Add trigger’. I used Github to link host repository for build source by selecting ‘Github’ from the possible option and then selected comp698-final repository because that is where i had my code and hit ‘Continue’. To Set up trigger profile and setting, i named the trigger ‘helloword-master’ and select ‘Branch’ as type with master. For build configuration i used Dockerfile which was perviously added to the code. For image name i used ‘gcr.io/comp698-ds1067/$REPO_NAME:$COMMIT_SHA’. 
 After creating the trigger, hit ‘run ‘Run trigger’ to ‘master’, and waited until it was successful.
 
 
@@ -128,13 +128,17 @@ To apply the changed and run server, i ran command ‘terraform apply’ . This 
 To check and get external IP i ran command ‘gcloud compute instances list’ and verified that it is running on server as well as on Web. Final result of production was showing Hello World output and staging server was showing bootstrap app.
 
 dilpreetsingh@terraform-configuration:~/comp698-final/terraform$ gcloud compute instances list
-NAME                              ZONE           MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
-student-sandbox                   us-central1-a  f1-micro                    10.128.0.2   35.193.90.229  RUNNING
-terraform-configuration           us-central1-a  f1-micro                    10.128.0.3   35.202.99.191  RUNNING
-prod-bootstrap-manager2-k65s      us-central1-f  n1-standard-1               10.128.0.6   35.224.9.225   RUNNING
-staging-helloworld-manager2-d469  us-central1-f  n1-standard-1               10.128.0.7   104.197.59.29  RUNNING
-my-app-dev                        us-east1-b     f1-micro                    10.142.0.3   35.231.163.2   RUNNING
-my-app-prod                       us-east1-b     f1-micro                    10.142.0.2   35.227.50.90   RUNNING
+
+| NAME                             	| ZONE          	| MACHINE_TYPE  	| INTERNAL_IP 	| EXTERNAL_IP   	| STATUS  	|
+|----------------------------------	|-----------------|---------------	|-------------	|---------------	|---------	|
+| student-sandbox                   | us-central1-a   | f1-micro        | 10.128.0.2    | 35.193.90.229   | RUNNING   |
+| terraform-configuration           | us-central1-a   | f1-micro        | 10.128.0.3    | 35.202.99.191   | RUNNING   |
+| prod-bootstrap-manager2-k65s     	| us-central1-f 	| n1-standard-1 	| 10.128.0.6  	| 35.224.9.225  	| RUNNING 	|
+| staging-helloworld-manager2-d469 	| us-central1-f 	| n1-standard-1 	| 10.128.0.7  	| 104.197.59.29 	| RUNNING 	|
+| my-app-dev                        | us-east1-b      | f1-micro        | 10.142.0.3    | 35.231.163.2    | RUNNING   |
+| my-app-prod                       | us-east1-b      | f1-micro        | 10.142.0.2    | 35.227.50.90    | RUNNING.  |
+
+
 
 Link to Merge PR:
 https://github.com/idilpreetsingh/comp698-final/commit/78468f8e3fd32ef92aa1aaf75fc396cede55b44d
@@ -146,3 +150,4 @@ Staging-helloworld-manager2-d469: http://104.197.59.29/home
 
 
 (Note: i forget to mention above, i used ‘git log’ frequency throughout the final to see if files updating was successful while push to repositories)
+(and i tried few different ways to create coloums for terminal output but it didntt work)
